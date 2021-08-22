@@ -1,5 +1,6 @@
-import sveltePreprocess from "svelte-preprocess"
 import { resolve } from "path"
+import sveltePreprocess from "svelte-preprocess"
+import vercel from "@sveltejs/adapter-vercel"
 
 const config = {
   preprocess: [
@@ -9,6 +10,7 @@ const config = {
   ],
   kit: {
     target: "#svelte",
+    adapter: vercel(),
     vite: {
       resolve: {
         alias: {
