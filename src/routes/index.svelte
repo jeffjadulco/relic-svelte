@@ -10,6 +10,7 @@
   import Post from "$src/components/Post.svelte"
 
   onMount(() => {
+    console.log("onMount")
     if (!$post_url) {
       const pathname = new URL(window.location.toString()).pathname
 
@@ -25,8 +26,11 @@
 
 <main>
   {#if !$post && !$comments}
-    <h1>RELIC</h1>
-    <InputField />
+    <div>
+      <h1>RELIC</h1>
+      <p>Reddit Live Comments</p>
+      <InputField />
+    </div>
   {:else}
     <Interval />
     <Feed>
@@ -39,3 +43,17 @@
     </Feed>
   {/if}
 </main>
+
+<style type="text/postcss">
+  h1 {
+    @apply text-6xl font-bold inline text-transparent bg-clip-text bg-gradient-to-br from-red-500 to-yellow-500;
+  }
+
+  main div {
+    @apply flex flex-col items-center h-full justify-center -mt-40;
+  }
+
+  p {
+    @apply text-gray-700;
+  }
+</style>

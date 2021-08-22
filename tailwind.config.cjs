@@ -1,12 +1,17 @@
-const config = {
-	mode: "jit",
-	purge: [
-		"./src/**/*.{html,js,svelte,ts}",
-	],
-	theme: {
-		extend: {},
-	},
-	plugins: [],
-};
+const { fontFamily } = require("tailwindcss/defaultTheme")
 
-module.exports = config;
+const config = {
+  mode: "jit",
+  purge: ["./src/**/*.{html,js,svelte,ts}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["Inter", ...fontFamily.sans],
+        serif: ["Space Mono", ...fontFamily.serif],
+      },
+    },
+  },
+  plugins: [],
+}
+
+module.exports = config
