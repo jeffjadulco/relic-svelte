@@ -29,8 +29,11 @@
   }
 
   input {
-    min-width: 450px;
-    @apply px-4 py-3 ring-1 ring-gray-300 outline-none text-sm text-gray-700 focus-within:ring-yellow-500 focus-within:text-gray-800;
+    @apply px-4 py-3 bg-[#fafafa] ring-1 ring-gray-300 outline-none text-sm text-gray-700 sm:w-96;
+  }
+
+  input:focus-within {
+    @apply ring-yellow-500 text-gray-800;
   }
 
   input:invalid {
@@ -53,7 +56,7 @@
     @apply bg-[#fafafa] text-gray-900 border border-black;
   }
 
-  button:focus-within {
+  button:focus-visible {
     @apply ring-1 ring-yellow-600 ring-offset-2 outline-none;
   }
 </style>

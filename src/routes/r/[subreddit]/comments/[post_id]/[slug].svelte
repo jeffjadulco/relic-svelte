@@ -1,12 +1,18 @@
 <script lang="ts">
   import { onMount } from "svelte"
   import { isRedditPostUrl } from "$src/lib/reddit"
-  import { fetchPostData, post, post_url, comments } from "$src/store/data"
+  import {
+    fetchPostData,
+    post,
+    post_url,
+    comments,
+    reset,
+  } from "$src/store/data"
 
   import Feed from "$src/components/Feed.svelte"
   import Comment from "$src/components/Comment.svelte"
   import Post from "$src/components/Post.svelte"
-  import Interval from "$src/components/Interval.svelte"
+  import Live from "$src/components/Live.svelte"
 
   onMount(() => {
     if (!$post_url) {
@@ -15,16 +21,15 @@
       if (isRedditPostUrl(pathname)) {
         post_url.set(pathname)
         fetchPostData(pathname)
-      } else {
-        console.log("please enter a valid url")
       }
     }
+
+    return () => reset()
   })
 </script>
 
-<main>
+<Live>
   {#if $post && $comments}
-    <Interval />
     <Feed>
       <Post slot="post" post={$post} />
       <svelte:fragment slot="comments">
@@ -34,4 +39,4 @@
       </svelte:fragment>
     </Feed>
   {/if}
-</main>
+</Live>

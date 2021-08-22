@@ -8,6 +8,6 @@
 
 <style type="text/postcss">
   :global(main) {
-    @apply flex-grow h-full max-w-screen-md mx-auto;
+    @apply flex-grow h-full max-w-screen-md mx-auto px-4;
   }
 </style>

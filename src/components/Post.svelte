@@ -5,16 +5,20 @@
 </script>
 
 <div>
-  <h1>{post.title}</h1>
-  {@html post.content}
+  <h2>{post.title}</h2>
+  <div class="content">{@html post.content}</div>
 </div>
 
 <style type="text/postcss">
   div {
-    @apply my-8;
+    @apply mt-4 mb-8;
   }
 
-  h1 {
-    @apply text-2xl;
+  h2 {
+    @apply text-2xl font-semibold text-gray-800;
+  }
+
+  .content {
+    @apply prose-sm;
   }
 </style>

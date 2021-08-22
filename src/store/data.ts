@@ -11,6 +11,8 @@ export const error: Writable<Error | null | undefined> = writable(null)
 export const updated_at: Writable<Date> = writable(new Date())
 export const fetch_interval: Writable<number> = writable(2000)
 export const post_url: Writable<string | null | undefined> = writable(null)
+export const refetch_handle: Writable<NodeJS.Timeout | null | undefined> =
+  writable(null)
 
 export async function fetchPostData(url: string) {
   try {
@@ -22,14 +24,19 @@ export async function fetchPostData(url: string) {
     if (!response || !Array.isArray(response))
       throw new Error("Unable to fetch post")
 
-    post.set(parsePost(response))
-    comments.set(parseComments(response))
-    updated_at.set(new Date())
+    if (post_url) {
+      // @todo ugly. handle this one better
+      post.set(parsePost(response))
+      comments.set(parseComments(response))
+      updated_at.set(new Date())
+    }
 
     // auto fetch
-    setTimeout(() => {
+    const handle = setTimeout(() => {
       fetchPostData(url)
     }, get(fetch_interval))
+
+    refetch_handle.set(handle)
   } catch (error) {
     // @todo add error handling
     console.error(error)
@@ -41,4 +48,14 @@ export function updateInterval(ms: number) {
   if (ms !== undefined) {
     fetch_interval.set(ms)
   }
+}
+
+export function reset() {
+  clearTimeout(get(refetch_handle))
+  post.set(null)
+  comments.set(null)
+  error.set(null)
+  updated_at.set(null)
+  post_url.set(null)
+  refetch_handle.set(null)
 }

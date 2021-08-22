@@ -14,8 +14,15 @@ I made this tool to automate refreshing of r/formula1 live comments during race 
 ## To do
 
 - Fix unmount issues
+- Fix history.back() issue
 - Separate stores
-- Improve visuals
+- Improve error handling
+  - Wrong link formats
+  - CORS error
+- Dark mode
+- Polish
+  - refresh progress bar
+- Virtualize list(?)
 
 ## License
 
