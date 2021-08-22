@@ -1,32 +1,33 @@
 {
-	"name": "reddit-live-comments-svelte",
-	"version": "0.0.0",
-	"type": "module",
-	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"serve": "vite preview",
-		"check": "svelte-check --tsconfig ./tsconfig.json"
-	},
-	"devDependencies": {
-		"@sveltejs/vite-plugin-svelte": "^1.0.0-next.11",
-		"@tsconfig/svelte": "^2.0.1",
-		"autoprefixer": "^10.3.1",
-		"cssnano": "^5.0.6",
-		"postcss": "^8.3.5",
-		"postcss-load-config": "^3.1.0",
-		"prettier": "^2.3.2",
-		"prettier-plugin-svelte": "^2.3.1",
-		"svelte": "^3.37.0",
-		"svelte-check": "^2.1.0",
-		"svelte-preprocess": "^4.7.4",
-		"tailwindcss": "^2.2.4",
-		"tslib": "^2.2.0",
-		"typescript": "^4.3.2",
-		"vite": "^2.4.4"
-	},
-	"dependencies": {
-		"date-fns": "^2.23.0",
-		"html-entities": "^2.3.2"
-	}
+  "name": "reddit-live-comments-svelte",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "preview": "svelte-kit preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@sveltejs/kit": "^1.0.0-next.154",
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.11",
+    "@tsconfig/svelte": "^2.0.1",
+    "autoprefixer": "^10.3.1",
+    "cssnano": "^5.0.8",
+    "postcss": "^8.3.5",
+    "postcss-load-config": "^3.1.0",
+    "prettier": "^2.3.2",
+    "prettier-plugin-svelte": "^2.3.1",
+    "svelte": "^3.37.0",
+    "svelte-check": "^2.1.0",
+    "svelte-preprocess": "^4.7.4",
+    "tailwindcss": "^2.2.4",
+    "tslib": "^2.2.0",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "date-fns": "^2.23.0",
+    "html-entities": "^2.3.2"
+  }
 }
