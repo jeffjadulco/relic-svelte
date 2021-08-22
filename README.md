@@ -8,8 +8,7 @@ I made this tool to automate refreshing of r/formula1 live comments during race 
 
 ## Tech Stack
 
-- Svelte
-- Vite.js
+- SvelteKit
 - Tailwindcss
 
 ## To do
